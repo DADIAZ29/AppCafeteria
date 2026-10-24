@@ -1,0 +1,36 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "nombre": "Latte Vainilla",
+      "categoria": "Bebidas Calientes",
+      "precio": 3.75
+    },
+    {
+      "id": "2",
+      "nombre": "Croissant de Mantequilla",
+      "categoria": "Postres",
+      "precio": 2.5
+    },
+    {
+      "id": "e021",
+      "nombre": "Postre 3 leches",
+      "categoria": "postres",
+      "precio": 2
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "email": "admin@pichincha.com",
+      "nombre": "Darwin Diaz",
+      "rol": "admin"
+    },
+    {
+      "id": "2",
+      "email": "usuario@gmail.com",
+      "nombre": "Carolina Cueva",
+      "rol": "standard"
+    }
+  ]
+}

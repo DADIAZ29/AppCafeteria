@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="mb-4">Nuestro Catálogo de Café</h2>
+  <div class="row g-4">
+    @for (prod of productos(); track prod.id) {
+      <div class="col-md-4">
+        <app-product-card [producto]="prod" (onComprar)="manejarCompra($event)"></app-product-card>
+      </div>
+    } @empty {
+      <p class="text-muted">Cargando productos o no hay elementos disponibles...</p>
+    }
+  </div>
+</div>

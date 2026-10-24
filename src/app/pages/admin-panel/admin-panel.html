@@ -1,0 +1,56 @@
+<div class="container mt-4">
+  <h2 class="mb-4">Panel de Administración de Productos</h2>
+
+  <div class="card p-4 mb-4 shadow-sm">
+    <h4>{{ editandoId ? 'Editar Producto' : 'Agregar Nuevo Producto' }}</h4>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre">
+      </div>
+      <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Categoría" [(ngModel)]="nuevoProducto.categoria">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="Precio" [(ngModel)]="nuevoProducto.precio">
+      </div>
+      <div class="col-md-2 d-flex gap-2">
+        <button class="btn btn-success w-100" (click)="guardarProducto()">
+          {{ editandoId ? 'Actualizar' : 'Crear' }}
+        </button>
+        @if (editandoId) {
+          <button class="btn btn-secondary" (click)="resetForm()">X</button>
+        }
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-striped align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (prod of productos(); track prod.id) {
+        <tr>
+          <td>{{ prod.id }}</td>
+          <td>{{ prod.nombre }}</td>
+          <td>{{ prod.categoria }}</td>
+          <td>${{ prod.precio | number:'1.2-2' }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2" (click)="editarProducto(prod)">Editar</button>
+            <button class="btn btn-sm btn-danger" (click)="eliminarProducto(prod.id)">Eliminar</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" class="text-center text-muted">No hay productos registrados.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
